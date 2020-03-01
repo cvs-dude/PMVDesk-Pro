@@ -1,0 +1,44 @@
+#include <os2.h>
+#include "dialogs.h"
+DLGINCLUDE 1 "dialogs.h"
+
+DLGTEMPLATE ID_PRODUCTINFO LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About PMVDesk", -1, 0, 0, 250, 195, WS_VISIBLE | FS_NOBYTEALIGN | WS_ANIMATE, FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        DEFPUSHBUTTON   "~OK", DID_OK, 105, 5, 40, 14
+        CTEXT           "PMVDesk Window Manager", -1, 10, 178, 230, 12
+        PRESPARAMS      PP_FONTNAMESIZE "12.Tms Rmn"
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Ver. 1.00", IDC_VERSION, 10, 165, 230, 12
+        PRESPARAMS      PP_FONTNAMESIZE "12.Tms Rmn"
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        PUSHBUTTON      "#100", IDC_ICON, 15, 125, 50, 40, BS_NOBORDER | BS_NOPOINTERFOCUS | BS_ICON
+        LTEXT           "(C) Copyright ", -1, 85, 150, 150, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        LTEXT           "Carrick von Schoultz 1994.", -1, 85, 140, 150, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        LTEXT           "All rights reserved.", -1, 85, 130, 150, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Unregistered!", -1, 10, 115, 230, 8
+        CTEXT           "If you like PMVDesk and continue", -1, 10, 100, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "using it, you are expected to register it.", -1, 10, 90, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Refer to the accompanying documentation", -1, 10, 80, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "for registering information.", -1, 10, 70, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Contact information:", -1, 10, 55, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Carrick von Schoultz", -1, 10, 45, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Mittarinkatu 4 bB 32, SF-20100 Turku, FINLAND.", -1, 10, 35, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "EMail (Internet): cschoult@aton.abo.fi", -1, 10, 25, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+    END
+END
+
+
+

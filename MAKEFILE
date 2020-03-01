@@ -1,0 +1,100 @@
+################################################################################
+#
+# PMSnap: MAKEFILE
+# (c) Copyright Carrick von Schoultz 1994. 
+# All rights reserved.
+#
+################################################################################
+#
+# Compile options:
+# /O    optimize
+# /C    compile only
+# /Q    no copyright notice when compiling
+# /G4   optimize for 486
+# /ss   allow // comments
+# /Ge-  generate a reference to _dllentry
+# /Se   allow c/c++ tools language options
+# /Gm   use multithread libraries
+# /Wpro produce diagnostic messages about unprototyped functions
+# /kb   produce basic diagnostic messages
+# /n50  end compilation when error count reach 50
+# /Ti   generate debugger info
+# /Tl-  option to tell the compiler not to preload itself
+# /Gm   use multithread libraries
+# /Gu+  code generating option
+# /Ol+  code generating option
+# /Wall produce diagnostic messages 
+# /Gn+  you must specify all library modules during link
+# /Rn   generate code that can run without runtime environment
+# /Ge-  generate library module code
+################################################################################
+
+# Debug flags, uncomment when needed
+#CC      = icc /Ti+ /G4 /O- /Wpro /ss /c /Gm
+#LFLAGS  = /NOE /NOD /A:16 /CODEVIEW /DEBUG
+
+# Compile flags, comment when debug flags are used
+CC      = icc /Ti- /G4 /O+ /Q+ /ss /c /Gm /Gn+ /Wall+ppc-ppt-ext-uni-gnr-cpy-
+CCDLL   = icc /Ti- /G4 /O+ /Q+ /ss /c /Rn /Ge- /Wall+ppc-ppt-ext-uni-gnr-cpy-
+LFLAGS  = /A:16 /F /PACKC /NOI /NOL /E /NOD
+LFLAGSDLL = /A:16 /NOI /NOL /NOE /E /NOD
+
+LINK    = LINK386 $(LFLAGS)
+LINKDLL = LINK386 $(LFLAGSDLL)
+
+LIBS    = DDE4MBS.LIB+OS2386.LIB 
+LIBSDLL = DDE4SBS.LIB+OS2386.LIB
+
+#-------------------------------------------------------------------
+
+ALL: PMVDDLL.DLL PMVD.EXE
+
+PMVDDLL.OBJ:  PMVDDLL.C PMVDDLL.H MAKEFILE
+   $(CCDLL) PMVDDLL.c
+
+PMVDDLL.DLL: PMVDDLL.OBJ PMVDDLL.def MAKEFILE
+   kill PMVD.exe
+   $(LINKDLL) PMVDDLL.OBJ, PMVDDLL.DLL, nul.map, $(LIBSDLL), PMVDDLL.def;
+
+#-------------------------------------------------------------------
+
+.SUFFIXES: .res .rc .obj .c .hlp .ipf
+
+.c.obj:
+    $(CC)  $*.c
+.rc.res:
+    rc -r  $*.rc
+.ipf.hlp:
+    ipfc   $*.ipf /W3
+
+#-------------------------------------------------------------------
+
+ALL_OBJ = PMVD.obj Dialogs.obj Desktop.obj Windows.obj
+
+#-------------------------------------------------------------------
+
+HEADERS   = PMVD.h xtrn.h
+RESOURCES = PMVD.ico About.dlg About2.dlg
+
+PMVD.obj:    PMVD.c      $(HEADERS) MAKEFILE
+Dialogs.obj: Dialogs.c   $(HEADERS) Dialogs.h MAKEFILE
+Desktop.obj: Desktop.c   $(HEADERS) Desktop.h MAKEFILE
+Windows.obj: Windows.c   $(HEADERS) Windows.h MAKEFILE
+PMVD.res:    PMVD.rc     $(HEADERS) $(RESOURCES) Dialogs.h MAKEFILE
+
+#-------------------------------------------------------------------
+
+PMVD.LNK: makefile
+    echo $(ALL_OBJ)           >  PMVD.LNK
+    echo PMVD.exe             >> PMVD.LNK
+    echo PMVD.map             >> PMVD.LNK
+    echo $(LIBS)              >> PMVD.LNK
+    echo PMVD.def             >> PMVD.LNK
+
+#-------------------------------------------------------------------
+
+PMVD.EXE: $(ALL_OBJ) PMVD.def PMVD.lnk PMVD.res MAKEFILE
+   kill PMVD.exe
+   $(LINK) @PMVD.LNK
+   rc PMVD.res
+

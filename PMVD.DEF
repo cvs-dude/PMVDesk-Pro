@@ -1,0 +1,9 @@
+NAME PMVD WINDOWAPI
+DESCRIPTION 'PMVDesk (c) 1994 Carrick von Schoultz.  Reverse engineering prohibited by law.'
+PROTMODE
+BASE=0X10000
+HEAPSIZE        4096
+STACKSIZE       32768
+IMPORTS
+   PMVDDLL.InstallHook
+   PMVDDLL.ReleaseHook

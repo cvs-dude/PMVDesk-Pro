@@ -1,0 +1,84 @@
+Hello!
+
+Thank you for showing interest in PMVDesk!
+
+Here comes the evaluation (beta) copy of the new PMVDesk.
+As it is a beta without documentation, the support I can
+give you is quite limited. It is very time consuming for
+me to write in english, and so you must wait for the real
+documentation to be finished.
+However here are some hints and tips...
+Before starting PMVDesk:
+- make sure your desktop name is "Desktop", otherwise you
+  might run in to problems. (You can do this by looking
+  at the file hierarchy, and look for a folder called
+  "Desktop").
+- check that you do not have any previous PMVDESKB.INI
+  files in the path.
+- PMVDDLL.DLL must be in the LIBPATH (usually it is fine
+  if it is in the same directory as PMVD.EXE)
+
+After starting PMVDesk:
+- the black area is the virtual space (if you click mouse
+  button 2 you open the main popup-menu)
+- the gray area represents the screen
+- each white window represents your current applications
+- all windows in PMVDesk have their own popup-menu, click
+  mouse button 2 to activate menus.
+- by sizing the PMVDesk main window you can alternate the
+  size of the virtual world.
+- "Save position and size" is not yet implemented.
+- use mouse button 1 to move windows (press mouse button 1
+  on a window, keep it down, and drag the window)
+- if you do not want to make the window you move the top
+  window, keep ctrl-key down to move windows in the
+  background.
+- from the main windows popup-menu you can alternate the
+  scaling of windows (try it!)
+- from the main windows popup-menu you can alternate the
+  grid of the screen movement (try it!)
+- from the main windows popup-menu you can alternate the
+  grid of the windows movement (try it!)
+- from each windows popup-menu you can check the "sticky"
+  option to keep windows sticky while you move the screen.
+
+Feel free to experiment different options in PMVDesk.
+
+A short FAQ (PMVDesk frequently asked questions):
+
+ What does PMVDesk do to my system and windows?
+ -----------------------------------------------
+ PMVDesk only moves/repositions your windows, nothing else!
+ I have implemented PMVDesk so that it does not change anything
+ in your system configuration. All PMVDesk does is:
+ - installs a "input" and "sendmsg" -hook
+ - moves/repositions your windows
+
+ How did you implement PMVDesk?
+ ------------------------------
+ First I enumerate all your wisible windows, and query their
+ size and position. I create a tiny window representing your
+ window, divide the size of the original by the value selected
+ in "Scale" an position this window in PMVDesk window. I store 
+ the window handle, and the eqvivalent window handle of my tiny 
+ window, so I can later find the corresponding windows.
+ When you move the tiny window in PMVDesk, PMVDesk repositions
+ your window to the new position. When you move your original
+ window a "sendmsg" hook checks if your action should affect the
+ the tiny window in PMVDesk. If you close or start an application, 
+ the "sendmsg" hook checks if some action is needed in PMVDesk.
+
+ IMPORTANT!
+ As this is a evaluation (beta) copy of the new PMVDesk, I wish
+ you do NOT distribute or copy this to anyone. The reason for this
+ is just simply that I do not want to make PMVDesk publicly
+ available before I have finished the documentation.
+ Feel free to use it and show it to your friends and colleagues.
+ If you like, you may also write about PMVDesk for example in the
+ news groups.
+
+ I would be more than glad to get any comments on PMVDesk.
+
+ greetings
+
+ Carrick von Schoultz

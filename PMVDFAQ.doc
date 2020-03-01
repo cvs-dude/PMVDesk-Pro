@@ -1,0 +1,387 @@
+ Thank you for the feedback I have received so far!
+
+ Since I think many of you might be interested, I have written
+ a summary of questions, suggestions, wishes and bug
+ reports (marked with a "Q:"), and my answer/comment (marked
+ with a "A:").
+ I would like to get feedback on things you find important that
+ I should change. And if you think about any additional features,
+ please add these also.
+ I try to implement PMVDesk Common User Access (CUA) conformant;
+ so I would like to get your comments if somthing does not feel
+ right.
+ 
+
+Q:
+ the "Move Desktop" menu choice should probably also be on the main
+ menu (the one accessed by MB2 click on black area)
+
+A:
+ I do not think that is necessary.
+
+
+Q:
+ Cannot switch between applications using Ctrl-Esc.  The Alt-Esc
+ round-robin only works between applications on the active desktop
+
+A:
+ How do you want it to be? Should the desktop follow the active
+ window, or vice versa?
+
+
+Q:
+ I am getting "phantom" windows on the desktop that do not go away;
+ are caused by pulldown menus, and possibly dialog boxes; e.g.,
+ pulldown menu of bitmaps on the Background page of the Desktop
+ Settings notebook.
+
+A:
+ I would like to get more specifik information about this.
+ I might have a bug, since I am experimenting with a new "window
+ enumeration engine" in this beta. If I can not fix the bug, I
+ just use my older "window enumeration engine" that is stable
+ (but slower).
+
+
+Q:
+ What do the grid options do?  I haven't been able to see if
+ they do anything at all.
+Q:
+ Sometimes you can drag the objects around with MB1, sometimes not.
+ (I can't tell what causes it to stop working)
+
+A:
+ These questions are related. If you use a grid option, you must
+ move the window (mouse pointer) the amount of the grid.
+ The reason i implemented the grid option is that you might want
+ to move your screen for example exactly one screen.
+ I will add the possibility to click in the black area to move
+ the screen in that direction.
+ I might include a option to show the grid in the PMVDesk window.
+
+
+Q:
+ Question: Why is Retrieve on Exit an option?  Would you ever not
+ want to do this?
+
+A:
+ I do not want to retrieve all windows back if I have to
+ temporaryly close PMVDesk. (for example when I compile a
+ new version)
+
+
+Q:
+ There should be a way to tell more clearly what the things are.
+ That is, someway to cause it to display the text (title) as part
+ of the diagram.
+
+A:
+ Yes, I think I have to implement a option to show the window
+ title in the mini window. Currently you see the title in
+ the local pop-up menu.
+
+
+Q:
+ VIO windows do not always redraw correctly after being dragged
+ to another place in the virtual space (a thin area of the
+ desktop shows through along the right side of the window).
+Q:
+ Occasionally lose keyboard control in VIO windows after making
+ them active.
+Q:
+ I don't know if it's a real bug or if it has something to do
+ with PMVD but suddenly I saw that sometimes my DOS-Box was not
+ redrawn correctly after I started PMVD.
+ Some thin lines disturbed the picture or one horizontal row was
+ shifted one char towards the left border. So wait for tests of
+ other people if they have these problems suddenly, too. And then
+ decide if it's a bug of PMVD.
+
+A:
+ I have had no such problems on my system, so if you experience
+ anything like this I would like to hear about it.
+
+
+Q:
+ When the tiny-WPS-window covers the tiny-VA-window (VA = visible
+ area) you can't move the tiny-VA-window directly with the mouse.
+ You can only do so when click on one tiny-window with the right
+ mouse button and select the menu-item 'Move Desktop' 
+
+A:
+ Your Workplace Shell ("Desktop") window is called somthing else
+ than "Desktop". This is a "bug" of PMVDesk, or to be more specific,
+ I have not yet implemented a installation routine that checks (and
+ ask if nessesary) the name of your desktop window.
+ I also intend to add the possibility to click in the black area
+ so you can quickly move in that direction.
+
+
+Q:
+ You have not integrated a Quit-command in the local menu of PMVD
+ (when you click on the black area), so that you have to toggle ON
+ the title bar to Quit PMVD.
+
+A:
+ Well I have not implemented a "Quit" menu option, but if you look
+ in the "Window" submenu, you will find the "Close" option. Use
+ this or the Alt+F4 key kombination. I will add a "Quit" menu
+ option if and only if I get many requests for a "Quit" menuitem.
+
+
+Q:
+ When you have opened many windows and there is not much black
+ background left in the PMVD-window it is hard to open the local
+ menu. You may add the possibility to open the local menu with the
+ left button (all over the PMVD-window), too.
+
+A:
+ You may size the main PMVDesk window to get more black area.
+ But I will consider to add a possibility to activate the main
+ menu (all over the PMVD-window). If you think this is needed,
+ please suggest different activation methods.
+
+
+Q:
+ When I have opened many windows and made the size of the PMVD-
+ window very small some tiny-windows are not visible. In this
+ case that some tiny windows are not visible and that you can
+ not access them directly with the mouse, scrollbars would make
+ a sense.
+
+A:
+ Sorry, I do not like the idea of scrollbars. But again, if many
+ of you insist...
+ Try keeping the "Scale" big enough, so that you kan access all
+ windows.
+
+
+Q:
+ You can move the PMVD-window only when you click on the black
+ area with the left button. I think it would be better to allow
+ it also or only with the right button, because normally you make
+ movements with the right button (under OS/2), at least I was
+ habbitted so.
+
+A:
+ If I understand CUA correctly, you move windows with mouse
+ button 1 (usually left button), and objects with mouse button 2
+ (usually right button). (Correct me if I am wrong)
+ This is a question of preferences, so maybe I must implement a
+ option, so the user can choose what ever feel better.
+
+
+Q:
+ It would be nice to be able to toggle the title bar on/off with
+ a double click (left and right button) on the PMVD-window.
+
+A:
+ If you insist, I will add this feature. The only problem might
+ be that I might assign some other more important features to
+ these mouse double clicks.
+
+
+Q:
+ Sometimes I want the PMVD-window totally out of the way without
+ closing it, but I  can't because it has a minimum size AND you
+ can't LET IT HANG OVER the border of the VA (Of course it must
+ not be allowd to put it totally out of the visible area, but
+ let it hang over!).
+
+A:
+ Try using the "Hide" option from the main menus "Window"
+ submenu (or press Alt+F11).
+ Should I let it "hang over"?
+
+
+Q:
+ Sometimes I clicked on the wrong tiny window and moved it,
+ but I didn't want it. So it would be also nice that you can
+ press ESC while moving the tiny window in PMVD with the
+ left (perhaps soon right) button, so that the window keeps
+ on the place where it was before starting moving it, like
+ it is also possible under OS/2.
+
+A:
+ This is a bug, and I will fix it. I will also enable the
+ tracking with arrow-keys.
+
+
+Q:
+ Highlight the tiny-window which is on top/really highlighted
+ (I mean that one that represents the window that is really
+ higlighted)
+
+A:
+ I think you mean the active window. Yes, this is a good idea.
+
+
+Q:
+ For the grids to be more useful, there should probably be
+ smaller options, like 5, 10, or 20 pixels, in addition to
+ large fractions of screen size.
+Q:
+ Allow a scale of 1:2
+
+A:
+ I have the intention to implement a slider or spinbutton, so
+ the user can freely adjust the scale or grids.
+
+
+Q:
+ In the local menus of the tiny windows there's the command
+ 'Move Desktop' but it seams to me that the command better
+ should be called 'Move Visible Area' otherwise confusion
+ might come up because somebody may understand that the
+ movement of the WPS-window is meant!
+
+A:
+ I think I will call it "Move screen".
+
+
+Q:
+ I saw the feature of OS/2 with ctrl-move the first time but
+ the pmvd-window itself does not work with it: when you press
+ ctrl and try to move PMVD-window it becomes highlighted and
+ comes to the top!
+
+A:
+ You are right. I think I have to change this!
+
+
+Q:
+ When I have a "Screen grid" (1:1), and move between different
+ screens, PMVDesk moves the screen allmost correctly, but not
+ quite.
+
+A:
+ Yes, this is a bug, since I have not "calibrated" the tracking
+ yet.
+
+
+Q:
+ What does "Cancel" on the menus do?  If it just cancels
+ the menu, that's not necessary.  I thought it might exit the
+ program; it might be good to have this as an explicit option
+ on one of the popup menus, instead of under "Window->Close".
+
+A:
+ "Cancel" does nothing but cancels the menu. I added this so
+ you would not click on menu choises by accident. I might
+ remove "Cancel" if you feel it is unnecessary.
+
+
+Q:
+ Right-clicking on the grey "Screen" area brings up a menu
+ that says "Screen" (which you can't select) and "Cancel",
+ which does nothing. Don't bother with the menu unless something
+ is worth selecting.
+
+A:
+ "Screen" is the title of the window, as in other window
+ specific menus. You are right, this menu is maybe
+ unnecessary.
+
+
+Q:
+ On a related note, grey out the "title" which is the first
+ choice on each popup menu to make it clear that it can't be
+ selected.
+
+A:
+ If you like it better that way, why not.
+
+
+Q:
+ Under the "Scale", "Screen Grid", and "Window Grid" options,
+ use check marks instead of greying to indicate the current
+ option.
+
+A:
+ I will! I hate these disabled menu choises also. :-)
+
+
+Q:
+ When dragging a window by its title bar, dragging off the
+ edge of the screen should result in the grey "screen area"
+ following the window.  In fact, this should happen any time
+ the mouse moves off the edge of the visible desktop.
+
+A:
+ Yes, I have considered this.
+
+
+Q:
+ Somehow I was able to produce a 'drag' effect: what I mean
+ is that when I did some rearranging of windows on the desktop,
+ the display on the PMVD window didn't update immediately. I
+ can't reproduce this right now.
+
+A:
+ Yes, you are right. I have seen the same happen on my system, and
+ it seems to be quite random. I thought it had to do with some
+ dialogboxes (eg. you open a dialogbox, close it, and the move the
+ main window, or switch desktop), but I can not reproduce it always.
+ If you find out any "pattern" how it always can be reproduced, I
+ would be very happy to hear about it.
+
+
+Q:
+ One suggestion I will make which I think would be a worthwhile
+ addition; when double clicking with the mouse on a window on
+ PMVD's 'desktop', PMVD should switch focus to that window and
+ if the window is not visible on the screen, it should move the
+ viewport to make it visible.  This would be very nice in that
+ it would allow application switching easily from a global point
+ of view and be an alternative to moving the view then setting
+ focus by clicking on the application window itself.
+
+A:
+ Yes, this is a very good idea!
+ The other possibility could be to move the window you double
+ click to the current viewport (screen).
+
+
+Q:
+ How do I register? What is your registration fee?
+
+A:
+ No panic... No hurry...
+ It just happens that I have written a screen capture
+ program (PMSnap) with my friend Peter Nielsen and I just
+ copyed the "About" dialogbox from that program. (PMSnap
+ is almost ready, just have to finish the online help).
+ PMVDesk might be shareware or freeware.
+ I have not decided anything yet. This is not question of
+ the day yet. Not before PMVDesk is ready for release.
+ And although the titlebar and "About" tells you to register,
+ this is only a beta, and you are free to use it.
+ Anyway, I am also using a unregistered version... :-)
+
+Since my english is not perfect, I wish you do not mind
+that I make a lot of spelling errors.
+You might be able to help me with some naming problems
+I have in PMVDesk. What should I call the visible area:
+- desktop
+- visible area
+- viewport
+- screen  (currently I prefer this, since the screen is
+           the hardware that you always look at)
+
+Should I call my tiny windows:
+- tiny windows
+- mini windows
+
+What should I call the black space:
+- virtual desktop
+- space
+
+
+
+Thanks again for your feedback and the time you put to
+test PMVDesk and write comments to me. I will be back
+with more information, and later with new versions.
+
+Carrick
+
+ 

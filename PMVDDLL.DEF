@@ -1,0 +1,22 @@
+;******************************************************************************
+;*
+;* Module definition file for PMVDDLL.DLL
+;* ¸ Copyright Carrick von Schoultz 1994. All rights reserved.
+;* LIBRARY PMVDDLL INITINSTANCE TERMINSTANCE
+;* DATA MULTIPLE NONSHARED READWRITE LOADONCALL
+;* STACKSIZE 0x8000
+;* LIBRARY PMVDDLL INITGLOBAL TERMGLOBAL
+;* DATA SINGLE SHARED READWRITE LOADONCALL
+;******************************************************************************
+
+LIBRARY PMVDDLL INITINSTANCE TERMINSTANCE
+DATA MULTIPLE NONSHARED READWRITE LOADONCALL
+SEGMENTS
+   GLOBAL_SEG CLASS 'DATA' SHARED
+DESCRIPTION 'PMVDesk (c) 1994 Carrick von Schoultz.  Reverse engineering prohibited by law.'
+PROTMODE
+CODE LOADONCALL
+STACKSIZE 32768
+EXPORTS
+   InstallHook
+   ReleaseHook

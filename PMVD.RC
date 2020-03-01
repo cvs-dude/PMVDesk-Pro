@@ -1,0 +1,112 @@
+/**************************************************************************
+ *  File name  :  main.rc
+ *  ¸ Copyright Carrick von Schoultz 1994. All rights reserved.
+ *  Description:  This resource file contains the menu and string
+ *                table definitions.
+ *************************************************************************/
+#include <os2.h>
+#include "pmvd.h"
+
+ICON ID_MAINWND pmvd.ico
+
+STRINGTABLE LOADONCALL
+BEGIN
+   SZ_TITLE          "PMVDesk"
+   SZ_APPNAME        "PMVDesk"
+   SZ_UNREGISTERED   "PMVDesk - Unregistered"
+   SZ_VERSION        "Ver. 0.3 beta."
+   SZ_KEYNAME        "Preferences"
+   SZ_ENVIRON_VAR    "PMVDESKB_INI"
+   SZ_INI_FILE       "PMVDESKB.INI"
+   SZ_MULT_CPY_MUTEX "\\SEM32\\PMVDMultipleCopyMutexB"
+   SZ_SEMAPHORE_QUIT "\\SEM32\\PMVDSemaphoreQuit"
+   SZ_RUNNING	       "PMVDesk is already running! Closing this instance."
+   SZ_MYDESKTOP      "MyDesktopWnd"
+   SZ_MYWINDOWS      "MyWindowsWnd"
+END
+
+MENU IDM_POPUPMENU LOADONCALL {
+   SUBMENU     "~Help",    IDM_HELP,   MIS_TEXT
+   {
+      MENUITEM    "Help ~index",       IDM_HELPINDEX,      MIS_TEXT
+      MENUITEM    "~General help",     IDM_HELPGENERAL,    MIS_TEXT
+      MENUITEM    "~Using help",       IDM_HELPUSINGHELP,  MIS_TEXT
+      MENUITEM    "~Keys help",        IDM_HELPKEYS,       MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM    "~About PMVDesk...", IDM_PRODUCTINFO, MIS_TEXT
+   }
+   SUBMENU "~Window", IDM_WINDOW, MIS_TEXT {
+      MENUITEM "~Restore\tAlt+F5",   SC_RESTORE,  MIS_TEXT
+      MENUITEM "~Move\tAlt+F7",      SC_MOVE,     MIS_TEXT
+      MENUITEM "~Size\tAlt+F8",      SC_SIZE,     MIS_TEXT
+      MENUITEM "Ma~ximize\tAlt+F10", SC_MAXIMIZE, MIS_TEXT
+      MENUITEM "~Hide\tAlt+F11",     SC_HIDE,     MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM "~Close\tAlt+F4",     SC_CLOSE,    MIS_TEXT
+   }
+   MENUITEM SEPARATOR
+   SUBMENU "~Util", IDM_UTIL, MIS_TEXT {
+      MENUITEM "~Retrieve windows",      IDM_VISIBLE,    MIS_TEXT
+      }
+   SUBMENU "~Scale", IDM_SCALE, MIS_TEXT {
+      MENUITEM "1:5",                 IDM_FIVE,       MIS_TEXT
+      MENUITEM "1:10",                IDM_TEN,        MIS_TEXT
+      MENUITEM "1:15",                IDM_FIFTEEN,    MIS_TEXT
+      MENUITEM "1:20",                IDM_TWENTY,     MIS_TEXT
+      MENUITEM "1:25",                IDM_TWENTYFIVE, MIS_TEXT
+      }
+   SUBMENU "Screen ~grid", IDM_SCREENGRID, MIS_TEXT {
+      MENUITEM "No grid",             IDM_SCREENGRIDNO,   MIS_TEXT
+      MENUITEM "Screen\t(1:1)",       IDM_SCREENGRIDONE,  MIS_TEXT
+      MENUITEM "Half screen\t(1:2)",  IDM_SCREENGRIDTWO,  MIS_TEXT
+      MENUITEM "Screen \\ 3\t(1:3)",    IDM_SCREENGRIDTREE, MIS_TEXT
+      MENUITEM "Screen \\ 4\t(1:4)",    IDM_SCREENGRIDFOUR, MIS_TEXT
+      }
+   SUBMENU "Wi~ndow grid", IDM_WINDOWGRID, MIS_TEXT {
+      MENUITEM "No grid",             IDM_WINDOWGRIDNO,   MIS_TEXT
+      MENUITEM "Screen\t(1:1)",       IDM_WINDOWGRIDONE,  MIS_TEXT
+      MENUITEM "Half screen\t(1:2)",  IDM_WINDOWGRIDTWO,  MIS_TEXT
+      MENUITEM "Screen \\ 3\t(1:3)",    IDM_WINDOWGRIDTREE, MIS_TEXT
+      MENUITEM "Screen \\ 4\t(1:4)",    IDM_WINDOWGRIDFOUR, MIS_TEXT
+      }
+   MENUITEM "Move screen",          IDM_MOVEDESKTOP,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM "~Title bar hidden\tAlt+T",  IDM_TITLEBAR, MIS_TEXT
+   MENUITEM "~Float on top\tAlt+F",      IDM_FLOAT,    MIS_TEXT
+   MENUITEM "~Retrieve windows on exit", IDM_RETRIEVE, MIS_TEXT
+}
+
+MENU IDM_DESKTOPPOPUPMENU LOADONCALL {
+	MENUITEM "Screen",      IDM_DESKTOPTITLE, MIS_STATIC
+	MENUITEM SEPARATOR
+	MENUITEM "Move screen", IDM_MOVEDESKTOP,  MIS_TEXT
+}
+
+MENU IDM_WINDOWSMENU LOADONCALL {
+	MENUITEM "Title",                IDM_WINDOWSTITLE, MIS_STATIC
+	MENUITEM SEPARATOR
+	MENUITEM "Move screen",          IDM_MOVEDESKTOP,  MIS_TEXT
+	MENUITEM SEPARATOR
+	MENUITEM "Save position & size", IDM_POSITIONSIZE, MIS_TEXT
+	MENUITEM "Sticky",               IDM_STICKY,       MIS_TEXT
+}
+
+ACCELTABLE ID_MAINWND LOADONCALL
+{
+   "t",    IDM_TITLEBAR, CHAR, ALT
+   "T",    IDM_TITLEBAR, CHAR, ALT
+   "f",    IDM_FLOAT,    CHAR, ALT
+   "F",    IDM_FLOAT,    CHAR, ALT
+   VK_F10, IDM_POPUPMENU, VIRTUALKEY, SHIFT
+   VK_F5,  SC_RESTORE,    VIRTUALKEY, ALT
+   VK_F7,  SC_MOVE,       VIRTUALKEY, ALT
+   VK_F8,  SC_SIZE,       VIRTUALKEY, ALT
+   VK_F9,  SC_MINIMIZE,   VIRTUALKEY, ALT
+   VK_F10, SC_MAXIMIZE,   VIRTUALKEY, ALT
+   VK_F11, SC_HIDE,       VIRTUALKEY, ALT
+   VK_F4,  SC_CLOSE,      VIRTUALKEY, ALT
+}
+
+rcinclude ABOUT.DLG
+rcinclude ABOUT2.DLG
+

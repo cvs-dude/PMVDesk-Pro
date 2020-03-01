@@ -1,0 +1,28 @@
+#include <os2.h>
+#include "dialogs.h"
+DLGINCLUDE 2 "dialogs.h"
+
+DLGTEMPLATE ID_ABOUT2 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About the author", -1, 5, 50, 250, 110, WS_VISIBLE | FS_NOBYTEALIGN | WS_ANIMATE, FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        DEFPUSHBUTTON   "~OK", DID_OK, 105, 5, 40, 14
+        LTEXT           "Who I am:", -1, 10, 95, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Carrick von Schoultz (born in 1967)", -1, 10, 85, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        LTEXT           "Occupation:", -1, 10, 65, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "Student, Computer Science", -1, 10, 55, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "at Abo Akademi University, Finland.", -1, 10, 45, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "(During summer unemployed, so if your company", -1, 10, 35, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+        CTEXT           "is in need of a programmer, please contact me)", -1, 10, 25, 230, 8
+        PRESPARAMS      PP_FOREGROUNDCOLOR, CLR_BLACK
+    END
+END
+
+
+
